@@ -1,0 +1,15 @@
+
+<div id="container">
+
+<div class="info">
+<h2>Hi! You are adding Art to the Show</h2>
+<p>This form is to allow you to create a view on art.</p>
+</div>
+
+
+<% form_tag({:action => 'create'} ,{:multipart => true},{:class=>'wufoo'}) do %>
+  <%= render :partial => 'form' %>
+<% end %>
+<br/>
+<%= link_to 'Back', :action => 'list' %>
+</div>

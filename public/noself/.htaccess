@@ -1,0 +1,6 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^noself.net$ [OR]
+RewriteCond %{HTTP_HOST} ^www.noself.net$
+RewriteRule ^(.*)$ http://blog.noself.net [R=301,L]
+

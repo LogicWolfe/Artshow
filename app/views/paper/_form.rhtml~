@@ -1,0 +1,66 @@
+<%= error_messages_for 'paper' %>
+
+<ul id="formFields">
+
+<li>
+<p class="instruct">The image that is selected via 'browse' will be stored for you on the server</p>
+<label class="desc" for="field6">
+			<%=if @paper.image.to_s.empty? then
+				"Upload an Image"
+			   else
+				"Replace the Image"
+			   end %>
+</label>
+<div>
+	<%= file_column_field "paper", "image" %>
+</div>
+</li>
+
+<li>
+<p class="instruct">Pictures in the same collection will naturally be grouped together</p>
+<label class="desc" for="paper_pile_name">Collection Picture Belongs To : </label>
+<div>
+	<% value = if @paper.nil? or @paper.paper_pile.nil? then "" else @paper.paper_pile.name end %>
+	
+	
+	<!--
+		Will need to Unroll text_field_with_autocomplete to debug modalbox
+	-->
+
+
+	<%= text_field_with_auto_complete :paper_pile, :name, {:value =>value,:class =>'field text medium'}%>
+
+</div>
+</li>
+
+<li>
+<p class="instruct">The title will be displayed as information associated with the Picture</p>
+<label class="desc" for="paper_name">Title of this Picture :</label>
+<div>
+	<%= text_field 'paper', 'name' , :size => 25, :class =>'field text medium' %></p>
+</div>
+</li>
+
+<li>
+<p class="instruct">You are welcome to give a story about the picture.</p>
+<label class="desc" for="paper_description">Description</label>
+<div>
+	<%= text_area 'paper', 'description', "cols" => 40, "rows" => 5, :class =>'field text medium'  %>
+</div>
+</li>
+
+
+<li>
+<p class="instruct">Enter the year you completed this piece.</p>
+<label class="desc" for="paper_year">Year Created</label>
+<div>
+	<%= text_field 'paper', 'year' , :size => 25, :class =>'field text medium' %></p>
+</div>
+</li>
+
+</ul>
+
+<div class="buttons">
+<input id="submit" name="submit" class="button" type="submit" value="Submit" />
+</div>
+

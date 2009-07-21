@@ -1,0 +1,82 @@
+/*
+ The info box css is broken into three parts.
+ #info_box is the general container, and then there are two other
+ parts, an underlay and an overlay.
+
+ The underlay is the partially opaque part, and the overlay is
+ the non-opaque part of the box.
+
+ Due to the current implementation of opacity, browsers will make any children
+ nodes of an opaque element also have the same opacity, without considering any
+ request to overwrite the css setting the opacity.
+
+ The overlay was create to make the text render properly without being faint
+*/
+#info_box
+{
+	clear:both;
+	float:left;
+	height:0px;
+	top:10px;
+	padding-left:10px;
+	position:relative;
+	left: 0px;
+
+}
+#info_box_overlay
+{
+	top:-150px;
+	padding-top: 5px;
+	position:relative;
+	min-width:300px;
+	max-width:300px;
+	min-height:150px;
+	color:#FFFFFF;
+	z-index:30;
+}
+
+#info_box_underlay {
+	position:relative;
+
+	min-width:300px; 
+	max-width:300px;
+	min-height:150px; 
+	background-color:#000000;	
+	opacity: 0.56;
+	-moz-opacity: 0.56;
+	 -khtml-opacity: 0.56;
+	filter:alpha(opacity=56);
+	z-index:10;
+}
+#info_box_title
+{
+	color:#FFFFFF;	
+	text-indent: 10px;
+	padding: 5px 5px 5px 5px;
+}
+#info_box_title span
+{
+	font-size: 12pt;
+}
+
+#info_box_details
+{
+	position:relative;
+	bottom:5px;
+	left:10px;
+	width:100%;
+	padding: 0px;
+	margin: 0px;
+	font-size:8pt;
+}
+#info_box_text
+{
+	position:relative;
+	bottom:-10px;
+	min-width:100%;
+	margin: 0px 10px 0px 10px;
+	font-size: 10pt;
+	color:#FFFFFF;	
+	z-index:20;
+}
+

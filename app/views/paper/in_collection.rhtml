@@ -1,0 +1,25 @@
+<style>
+
+div#paper_collection { clear:both; background-color:#999;padding:1px; }
+#paper_collection ul,#paper_collectionul li{list-style-type:none;}
+#paper_collection ul{clear:both;min-height:100px;width: 132px;}
+#paper_collection ul li{float:left;width: 64px; height:52px;}
+
+span.collection_name
+{
+
+}
+</style>
+<h1>Collection</h1>
+
+<div id="paper_collection">
+	<span class='collection_name'><%=@papers.first.paper_pile.name %></span>
+<ul>
+	<% for paper in @papers%>
+	<li> 
+		<%= image_tag url_for_file_column(paper, "image",'thumb') %>
+	</li>
+	<% end %>
+</ul>
+</div>
+

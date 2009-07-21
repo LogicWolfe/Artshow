@@ -1,0 +1,16 @@
+<%= error_messages_for 'artist' %>
+
+<!--[form:artist]-->
+<p><label for="artist_name">Name</label><br/>
+<%= text_field 'artist', 'name'  %></p>
+
+<p><label for="artist_email">Email</label><br/>
+<%= text_field 'artist', 'email'  %></p>
+
+<p><label for="artist_statement">Statement</label><br/>
+<%= text_area 'artist', 'statement'  %></p>
+
+<p><label for="artist_cv_file">Cv file</label><br/>
+ <%= file_column_field "artist", "cv_file" %></p>
+<!--[eoform:artist]-->
+

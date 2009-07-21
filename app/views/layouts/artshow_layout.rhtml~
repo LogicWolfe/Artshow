@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Paper: <%= controller.action_name %></title> 
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'builder.js' %>
+<%= javascript_include_tag 'modalbox.js' %>
+<%= stylesheet_link_tag "modalbox" %>
+<%= stylesheet_link_tag "scaffold" %>
+<%= stylesheet_link_tag "overview" %>	
+<%= stylesheet_link_tag "collection_nav_interface"%>
+<%= stylesheet_link_tag "info_box" %>	
+<%= stylesheet_link_tag "text_style" %>	
+<%= stylesheet_link_tag "default_artist_style"%>
+</head>
+<body>
+
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+
+</body>
+</html>

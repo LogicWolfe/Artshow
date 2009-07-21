@@ -1,0 +1,33 @@
+<!-- 
+	
+ This part of the html structure builds up a little information box.	
+ This box has two sections which should be documented as they 
+ represent working around an issue with opacity.
+ 
+ The css details this matter.		 
+-->
+
+<div id="info_box">
+	<div id="info_box_underlay"></div>
+
+	<div id="info_box_overlay">
+		   	<% unless current_paper.name.to_s.empty? %>
+			<div id="info_box_title">
+				<span id="name"><%= current_paper.name  %></span>
+				<hr>
+			</div>
+<%end%>
+		<div id="info_box_text">
+			<% unless current_paper.year.to_s.empty? and current_paper.materials.to_s.empty?%>
+				<span id='info_box_details'>
+					<span id="year"><%= current_paper.year %></span>
+						<span> </span>
+					<span id="materials"><%= current_paper.materials %></span>
+				</span>
+			<% end %>
+			<%unless current_paper.description.to_s.empty?%>
+			<p id="description"><%= current_paper.description %></p>
+			<%end%>							
+		</div>					
+	</div> 
+</div>

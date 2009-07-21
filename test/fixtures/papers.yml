@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  image:
+      "blah.jpg"
+two:
+  id: 2
+rooted_soot:
+    image:
+         "blah.jpg"
+    type: ArtPaper
+    id: 3
+    materials: ceramic, steel, fabric
+    price: 1470
+    year: 2007
+    paper_pile_id: 1
+hydraflower:
+    type: ArtPaper
+    id: 4
+    materials: fabric, ceramic
+    price: 1010
+    year: 2007
+    paper_pile_id: 2

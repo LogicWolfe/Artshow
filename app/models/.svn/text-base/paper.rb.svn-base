@@ -1,0 +1,17 @@
+class Paper < ActiveRecord::Base
+  include FileColumnHelper
+  validates_presence_of :name
+  validates_presence_of :image
+	#acts_as_rateable
+	file_column :image,
+	            :root_path => ENV["RAILS_ENV"] == "test" ? 
+                              File.join(RAILS_ROOT, "public", "test") : 
+                              File.join(RAILS_ROOT, "public"),
+              :magick => {:geometry => "800>x540>",
+                          :versions => {:thumb => {:crop => "1:1", :size=>"64x48!"},  :large => "1024>x768>" }}
+	belongs_to :paper_pile
+		
+	def image_url 
+	  url_for_file_column(self,'image')
+	end
+end

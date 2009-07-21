@@ -1,0 +1,18 @@
+
+<h1><a>This is a Banner</a></h1>
+<%= render :partial => 'image' ,:locals => {:paper => @paper, :options_for_image_tag => {:width => 240, :height => 120}}%>
+<div id="container">
+
+<div class="info">
+<h2>Hi! You are Updating Art in the Show</h2>
+<p>This form is to allow you to modify details about a view on art.</p>
+</div>
+
+
+<% form_tag({:action => 'update',:id => @paper} ,{:multipart => true},{:class=>'wufoo'}) do %>
+  <%= render :partial => 'form' %>
+<% end %>
+<br/>
+<%= link_to 'Show', :action => 'show', :id => @paper %> |
+<%= link_to 'Back', :action => 'list' %>
+</div>

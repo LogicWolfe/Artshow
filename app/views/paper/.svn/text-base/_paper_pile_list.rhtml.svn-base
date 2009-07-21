@@ -1,0 +1,56 @@
+<style type="text/css">
+
+ul.pile_list
+{
+	list-style-type:none;
+
+}
+ul.pile_list  li{	
+width:100%;
+
+}
+ul.paper_list 
+{
+
+	list-style-type:none;
+	float:left;
+	
+}
+.paper_list ul li{
+
+}
+#paper_pile_list
+{
+	float:left;
+	width:100%;
+}
+</style>
+<div id="paper_pile_list">
+<ul class="pile_list">
+<% paper_piles.each do|pile|%>
+<% if pile.papers.size > 1%>
+	<li>
+		<div style="float:left"><%= pile.name %></div>
+		
+		<div id='paper_list_for_#{pile.id}'>
+
+		<ul class='paper_list' id="pile_<%=pile.id%>">
+
+		
+			<%pile.papers.each do |paper| %>
+			<li id="paper_<%=paper.id%>">
+				<span>
+				<%= render :partial => 'image' ,
+					:locals => {:version =>'thumb',:paper => paper,
+					 :options_for_image_tag =>{}} %>
+				</span>
+			</li>
+			<%end%>
+		</ul>
+		</div>
+		<%= sortable_element "pile_#{pile.id}", :update => "paper_list_for_#{pile.id}",:url => {:action => :re_order_pile, :pile_id => pile.id}%>
+	</li>
+<%end%>
+<%end%>
+</ul>
+</div>

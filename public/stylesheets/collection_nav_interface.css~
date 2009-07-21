@@ -1,0 +1,105 @@
+
+/**
+ Begin Art Collection Interface.
+
+
+  This is a navigation mechanism that is intended to float
+to the right of the image, it has two parts, one which is
+normally visible and another "sub-selection" menu that is
+visible after each selection is made.
+**/
+
+div#art_collection_nav
+{
+	position:relative;
+	clear:both;
+	float:right;
+	/*
+	 * Keep the Nav box away from the right browser corner
+	 * also avoids having a scroll bar  (safari)
+	 */
+	padding-right: 20px;
+	/* 
+	 * Setting the height to 0 is important so that the
+	 * nav will sit over the image and also so that when
+	 * the interface is hidden nothing will move
+	 */
+	height:0px; 
+	z-index:30;
+}
+div#art_collection
+{
+	clear:right;
+	float:right;
+	width:96px;
+	min-height:300px;
+	z-index:30;
+}
+div#art_collection ul
+{
+	position: relative;
+	top:10px;
+	left:-35px;
+}
+div#art_collection ul li
+{
+	margin: 0px;
+	padding: 0px;
+	width:65px;
+	height:64px;
+	list-style-type: none;
+}
+div#art_collection ul li span.collection_size
+{
+	position:relative;
+	top:50px;
+	float:right;
+/*	border: 1px solid #999;*/
+	background-color:#FFFFFF;
+	color:#000000;
+}
+.arrow
+{
+	position:relative;
+	left:40px;
+	top:10px;
+	font-size: 0px; line-height: 0%; width: 0px;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 10px solid white;
+	
+	
+}
+div#alternative_views
+{
+	position: relative;
+	top: -50px;
+	left:-55px;
+	width:40px;
+	min-height: 24px;
+}
+
+div#alternative_views ul
+{
+	
+	position:relative;
+	top:-10px;
+	left:-40px;
+}
+
+div#alternative_views div ul li
+{
+	margin: 1px;
+	padding: 1px;
+	padding-top:2px;
+	padding-bottom:2px;
+	width:32px;
+	height:24px;
+	list-style-type: none;
+
+}
+
+
+/**
+ End Art Collection Interface
+**/

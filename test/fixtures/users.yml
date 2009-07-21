@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+bob:
+  id: 1000001
+  login: bob
+  password: f1dd9291e44f44c497534913791af97cb65945e7 # test
+  
+existingbob:
+  id: 1000002
+  login: existingbob
+  password: f1dd9291e44f44c497534913791af97cb65945e7 # test
+  
+longbob:
+  id: 1000003
+  login: longbob
+  password: d9664704f276f58e5d7121780b7279fb1d6f41cb # longtest

@@ -1,0 +1,8 @@
+
+<% unless paper.nil?%>
+ <% unless paper.image.nil?%>	
+	<% version = nil if version.nil?%>
+	<%= image_tag(url_for_file_column(paper, "image",version), options_for_image_tag) %>
+ <% end %>
+<% end %>
+

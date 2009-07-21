@@ -1,0 +1,57 @@
+<div id="art_paper_list" style="clear:both;">
+
+<h2>Listing Art</h2>
+<span>
+<%= link_to ('Add Art', {:action => 'add'}) %>
+
+</span>
+
+<table>
+	
+  <tr>
+	<th></th>
+	<th>Collection Name </th> 
+  <% for column in ArtPaper.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+
+<% for paper in papers %>
+
+  <tr><td><%= link_to('Show', {:action => 'show', :id => paper},modalbox('show')) %>  <%= link_to('Edit', {:action => 'edit', :id => paper}) %></td>
+  
+	
+		 <td>		
+	<%	paper_pile = paper.paper_pile %>
+	<%=
+	 	paper_pile.name
+	#
+	#	my_text_field_with_auto_complete(:paper_pile, :name, 
+	#		{:index => paper.id, :size => 15, :value => paper_pile.name})
+	
+	%>
+	
+
+	</td>	
+	
+  <% for column in ArtPaper.content_columns %>
+    <td>
+		<% if column.name == 'image' %>
+
+		<%= render :partial => 'image', :locals => {:paper => paper, :version =>'thumb', :options_for_image_tag => {:width => 64, :height => 52}}%>
+		<% else %>
+		     <%=h paper.send(column.name) %>
+		<% end %>
+	 </td>
+  <% end %>
+<td><%= link_to 'Delete', :action => 'delete', :id => paper %></td>
+  </tr>
+<% end %>
+</table>
+<div >
+<%= link_to 'Previous page', { :page => paper_pages.current.previous } if paper_pages.current.previous %>
+<%= link_to 'Next page', { :page => paper_pages.current.next } if paper_pages.current.next %> 
+</div>
+
+<br />
+</div>

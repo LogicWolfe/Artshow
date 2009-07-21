@@ -1,0 +1,19 @@
+class ArtPaper < Paper
+
+  def collection
+    self.paper_pile.papers
+  end
+  
+  #
+  # modify JSON output to correspond to a proper url
+  #
+  def _to_json
+      attr = attributes
+      attr['image'] = image_url
+      {:attributes => attr}.to_json      
+  end
+  def to_json
+  {
+     :attributes => { 'name' => self.name, 'description' =>self.description, 'image' => image_url, 'materials' =>self.materials, 'year' => self.year  }
+  }.to_json
+end

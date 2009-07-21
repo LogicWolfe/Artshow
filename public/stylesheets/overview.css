@@ -1,0 +1,61 @@
+/* 
+	 Css 
+   StephanieJonsson.com
+   (c) Curtis Schofield 
+ */
+ 
+
+
+html, body, #main { 
+  min-height: 100%; 
+  width: 100%; 
+  height: 100%; 
+
+} 
+html>body, html>body #main { 
+  height: auto; 
+} 
+
+
+div#image_container img
+{
+	position:absolute;
+	top:20px;
+	left:10px;
+	float:left;
+	/* fix one aspect of the image, this will end up showing very vertical images
+	 off the screen on small displays, but it will be of a good resolution to view.
+	*/
+
+	/*
+         width:80%; 
+	 height:80%; */
+	border-style: solid;
+	border-size: 10px;
+	border-color: white;
+	z-index:0;
+}
+div#main
+{
+	clear:both;
+	float:left;
+	position:relative;
+	padding-top:5px;
+	padding-left:0px;
+	z-index:0;
+}
+#header {
+
+	position:relative;
+
+	padding-right: 20px;
+	float:right;	
+}
+#footer
+{
+		padding-top:20px;
+		/* footer starts under the #main div on the left */
+		/* make sure footer is on the bottom. */
+		clear:both;
+		float:left;
+}

@@ -1,0 +1,40 @@
+8
+
+dir
+23
+file:///Users/svn/PaperProject/ArtShow/app
+file:///Users/svn/PaperProject
+
+
+
+2007-07-26T17:17:34.478400Z
+22
+schofiel
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8ecaa11f-bcf0-4191-a4e2-522eb660223a
+
+helpers
+dir
+
+models
+dir
+
+controllers
+dir
+
+views
+dir
+

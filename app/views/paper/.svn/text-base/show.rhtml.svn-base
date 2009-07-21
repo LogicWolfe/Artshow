@@ -1,0 +1,10 @@
+<% for column in Paper.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @paper.send(column.name) %>
+</p>
+
+<% end %>
+<%= render :partial => 'image', :locals => {:paper => @paper,:options_for_image_tag => {:width => 480, :height => 300}}%>
+<br/>
+<%= link_to 'Edit', :action => 'edit', :id => @paper %> |
+<%= link_to 'Back', :action => 'list' %>

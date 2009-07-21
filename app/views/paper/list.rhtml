@@ -1,0 +1,56 @@
+<%= javascript_include_tag 'SWFUpload' %>
+<%= javascript_include_tag 'swfupload_callbacks' %>
+<%= stylesheet_link_tag "scaffolding" %>
+ <%= stylesheet_link_tag "swfupload_theme"%>
+<h1></h1>
+
+<%= render :partial => 'paper_pile_list' , :locals => {:paper_piles => @paper_piles}%>
+
+
+<%= render :partial => 'art_list' , :locals => {:papers => @papers ,:paper_pages => @paper_pages} %>
+
+
+
+<h1>Bulk Upload</h1>
+<h2>Bulk Upload</h2>
+
+<div id="SWFUploadTarget"></div>
+<div id="queueinfo"></div>
+<div id="SWFUploadFileListingFiles"></div>
+<img src="/images/spinner.gif" id="spinner" style="display:none;float:left;" />
+
+<script type="text/javascript" charset="utf-8">
+	var swfu;
+
+	window.onload = function() {
+
+		swfu = new SWFUpload({
+			upload_script : "/paper/create",
+			target : "SWFUploadTarget",
+			flash_path : "/flash/SWFUpload.swf",
+			allowed_filesize : 30720,	// 30 MB
+			allowed_filetypes : "*.*",
+			allowed_filetypes_description : "All files...",
+			browse_link_innerhtml : "Browse",
+			upload_link_innerhtml : "Upload queue",
+			browse_link_class : "swfuploadbtn browsebtn",
+			upload_link_class : "swfuploadbtn uploadbtn",
+			flash_loaded_callback : 'swfu.flashLoaded',
+			upload_file_queued_callback : "fileQueued",
+			upload_file_start_callback : 'uploadFileStart',
+			upload_progress_callback : 'uploadProgress',
+			upload_file_complete_callback : 'uploadFileComplete',
+			upload_file_cancel_callback : 'uploadFileCancelled',
+			upload_queue_complete_callback : 'uploadQueueComplete',
+			upload_error_callback : 'uploadError',
+			upload_cancel_callback : 'uploadCancel',
+			auto_upload : false			
+		});
+
+	};
+</script>
+
+
+
+
+

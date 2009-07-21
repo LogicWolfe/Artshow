@@ -1,0 +1,30 @@
+
+span#toggle_interface_operation
+{
+	
+	position:relative;
+	
+	top:0px;
+}
+span#art_show_operations
+{
+	color:#FFFFFF;
+}
+span#art_show_operations a
+{
+	font-variant: small-caps;
+	margin-left: 4px;
+	margin-right: 4px;
+	color:#FFFFFF;
+}
+em#copywrite
+{	
+
+	float:left;
+	color:#FFFFFF;
+}
+em#copywrite a
+{
+	font-variant: small-caps;
+	color:#FFFFFF;
+}

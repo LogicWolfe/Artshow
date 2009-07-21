@@ -1,0 +1,86 @@
+<script type="text/javascript" charset="utf-8">
+	function handler_switch_details(request)
+	{
+		 try {
+	 		return eval(request.responseText);
+		 } catch (e) {
+			alert(e);
+		 }
+	}
+
+	function switch_details(json)
+	{
+		var attrs = json['attributes'];
+		var el;
+		for (var at in  attrs)
+		{
+			if (attrs[at] != "null" && attrs[at] != null)
+			{
+				if (at == 'image')
+				{
+					$('background').setAttribute('src',attrs[at]);
+				}
+				else
+				{
+					el = $(at);
+					if (el != null)
+					{
+						el.update(attrs[at]);
+					}
+				}
+			}
+		}
+
+	};
+</script>
+	<div id="art_collection_nav" >  
+				<div id="art_collection">
+					<ul>
+						<%art_collection.each_with_index do | paper,index | %>
+						
+						<li id="<%= index %>" class="art_piece">
+						
+							<span class='collection_size'><%=paper.collection.size%></span>
+								<%=link_to( 
+								image_tag(url_for_file_column(paper, "image","thumb"), 			
+									{ :width =>'64',:height=>'48', 								
+									:class =>'collection_thumbnail'}),
+									{:action => 'show', :id => index}								 
+									)%>	
+						
+							
+							<div id="alternative_views" style="display:<%= 
+							if paper === current_paper
+								""
+							else
+								"none"
+							end
+							%>">
+							  <div class="arrow"></div>
+								<div class="alt_view_art_collection">
+	 							 <ul>
+								
+									<%paper.collection.each do | apaper | %>
+										<li class="alt_view_art_piece">	
+												<%=link_to_remote( 
+											image_tag(url_for_file_column(apaper, "image","thumb"), 			
+												{ :width =>'32',:height=>'24', 								
+												:class =>'alt_view_thumbnail'}),
+													{ :url => {:controller => :art , 
+													           :action => :details, 
+												 			   :id => apaper.id,
+															  },	
+													  :complete => 'handler_switch_details(request);'														
+													 } 									 
+												)%>											
+										</li>	
+									<%end%>
+								</ul>
+							   </div>	<!-- alt_view_art_collection -->		
+							</div> <!-- alternative_views -->
+
+						</li>
+						<%end%>											
+					</ul>
+			</div> <!-- art collection -->
+	</div> <!-- art_collection_nav -->

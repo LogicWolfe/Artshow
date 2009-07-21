@@ -1,0 +1,73 @@
+
+
+<script language="javascript" type="text/javascript" charset="utf-8">
+
+Event.observe(window, 'load', function() {
+Effect.Appear('main');
+toggle_interface();
+});
+var toggle_state = 0;
+function toggle_interface()
+{
+	var element = $('toggle_interface');
+
+	var toggles = $w("Hide Show");
+	var elm_names = $w("info_box");
+	if(toggle_state == 0)
+	{
+		toggle_state = 1	
+	}
+	else
+	{
+		toggle_state = 0
+	}
+	element.update(toggles[toggle_state] + ' Details');
+	elm_names.each(function(item) {
+	 $(item).toggle();
+	});
+}
+</script>
+<%= stylesheet_link_tag "overview" %>	
+<%= stylesheet_link_tag "collection_nav_interface"%>
+<%= stylesheet_link_tag "info_box" %>	
+<%= stylesheet_link_tag "text_style" %>	
+
+	<em id="copywrite">(c)<%=artist.name%> </em>
+<div id="header">
+	
+
+
+<span id="art_show_operations">
+			<span> <a href="mailto:<%=artist.email%>">[Email]</a></span>
+			<span id="artist_info">
+		<%= link_to('[Statement]',{:controller =>:art,:action =>'statement'},modalbox("The Artist Statement of #{artist.name}")) %>
+		<%= link_to('[Curriculum Vitae ]',{:controller =>:artist,:action =>'cv'}) %>
+		</span>
+		 <span>|</span>
+		 <strong id='toggle_interface_operation'><a id='toggle_interface' href="#" onClick="toggle_interface(); return false;">Show Image</a></strong>
+</span>
+</div>
+
+
+	<div id="main" style="display:none">
+		
+		
+			
+		
+<!-- Only show these partials if we have a paper -->
+	
+		<%unless @apaper.nil?%>
+		<%= render :partial =>'art_collection_nav', :locals => {:current_paper => @apaper, :art_collection => @collection_list}%>
+		<div id='image_container'>
+			
+			<%= render :partial =>'info_box', :locals => {:current_paper => @apaper}%>
+
+				<%= render :partial => 'paper/image', :locals => {:paper => @apaper, :options_for_image_tag => { :id =>'background'}}%>		
+		</div>
+	<!-- End Display-->
+		<%end%>	
+		
+	</div>
+	<div id='footer'>
+		
+		</div>

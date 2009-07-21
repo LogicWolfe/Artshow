@@ -1,0 +1,103 @@
+/* 
+	 Css 
+   StephanieJonsson.com
+   (c) Curtis Schofield 
+ */
+
+body {
+	background-color:#000000;
+}
+#main
+{
+	position:absolute;
+	width:780px;
+	height:500px;
+
+	z-index:15;
+}
+#main span.bottom
+{	
+	float:right;
+		color:#FFFFFF;
+}
+#main span.bottom a
+{
+	font-variant: small-caps;
+	color:#FFFFFF;
+}
+#info_box_title
+{
+	
+	color:#FFFFFF;	
+		text-indent: 10px;
+		padding: 5px 5px 5px 5px;
+}
+#info_box_title span
+{
+	font-size: 18pt;
+}
+#info_box_title span em
+{
+	float:right;
+	padding:10px;
+	font-size: 10pt;
+}
+#info_box_text
+{
+
+	margin: 10px 20px 5px 20px;
+	font-size: 12pt;
+	color:#FFFFFF;	
+	z-index:10;
+}
+#date
+{
+	font-size:8pt;
+}
+#materials
+{
+	font-size:10pt;
+}
+#info_box {
+	position:absolute;
+	width:370px;
+	height:215px;
+	left: 7.5px;
+	top: 300.5px; /* was 231.5 in illustrator*/
+	background-color:#000000;
+	opacity: 0.56;
+	-moz-opacity: 0.56;
+	filter:alpha(opacity=56);
+	z-index:5px;
+}
+
+#nav_box {
+	position:absolute;
+	width:245px;	
+	height:35px;
+	left:550px;
+	top:5px;
+	background-color:#000000;
+	opacity: 0.56;
+	-moz-opacity: 0.56;
+	filter:alpha(opacity=56);
+	z-index:5px;
+	
+}
+#nav_box span
+{	
+	
+	padding-left:12px;
+	margin-top:15px;
+	margin 5px;
+}
+#nav_box span a
+{
+	color:#FFFFFF;
+	text-decoration: none;
+}
+#nav_box span a:hover
+{
+	color:#888888;
+	text-decoration: underline;
+}
