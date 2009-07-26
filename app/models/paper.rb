@@ -7,7 +7,7 @@ class Paper < ActiveRecord::Base
 	            :root_path => ENV["RAILS_ENV"] == "test" ? 
                               File.join(RAILS_ROOT, "public", "test") : 
                               File.join(RAILS_ROOT, "public"),
-              :magick => {:geometry => "800>x540>",
+              :magick => {:geometry => "800>x540>", :strip => true,
                           :versions => {:thumb => {:crop => "1:1", :size=>"64x48!"},  :large => "1024>x768>" }}
 	belongs_to :paper_pile
 	acts_as_list :scope => :paper_pile

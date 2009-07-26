@@ -77,6 +77,9 @@ module FileColumn # :nodoc:
 
     def transform_image(img, img_options, dest_path)
       begin
+        if img_options[:strip]
+          img.strip!
+        end
         if img_options[:transformation]
           if img_options[:transformation].is_a?(Symbol)
             img = @instance.send(img_options[:transformation], img)
