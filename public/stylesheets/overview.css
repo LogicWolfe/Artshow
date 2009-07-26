@@ -6,12 +6,6 @@
  
 
 
-html, body, #main { 
-  min-height: 100%; 
-  width: 100%; 
-  height: 100%; 
-
-} 
 html>body, html>body #main { 
   height: auto; 
 } 
@@ -38,7 +32,6 @@ div#image_container img
 div#main
 {
 	clear:both;
-	float:left;
 	position:relative;
 	padding-top:5px;
 	padding-left:0px;
